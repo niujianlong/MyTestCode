@@ -13,18 +13,20 @@
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_AUTHOR("NJL");
 
-static int hello_open (struct inode *, struct file *){
+static int hello_open (struct inode *inode, struct file *file){
 	printk(KERN_EMERG,"\thello_open\n");
 	return 0;
 }
-static int hello_release (struct inode *, struct file *){
+static int hello_release (struct inode *inode, struct file *file){
 	printk(KERN_EMERG,"\thello_release\n");
 	return 0;
 }
+#if 0
 static int hello_ioctl1(struct inode *, struct file *, unsigned int, unsigned long){
 
 }
-static int hello_ioctl (struct file *, unsigned int cmd, unsigned long argv){
+#endif
+static int hello_ioctl (struct file *file, unsigned int cmd, unsigned long argv){
 	printk(KERN_EMERG,"cmd = %d\n argv = %d\n");
 }
 static struct file_operations hello_ops = 
