@@ -29,7 +29,8 @@ static int hello_ioctl1(struct inode *, struct file *, unsigned int, unsigned lo
 }
 #endif
 static int hello_ioctl (struct file *file, unsigned int cmd, unsigned long argv){
-	printk(KERN_EMERG"cmd = %d\n argv = %d\n");
+	printk(KERN_EMERG"cmd = %d\n argv = %d\n",cmd,argv);
+	return 0;
 }
 static struct file_operations hello_ops = 
 {
@@ -67,15 +68,37 @@ static int hello_shutdown(struct platform_device *pdv){
 	printk(KERN_EMERG "\thello_shutdown\n");
 	return 0;
 }	
+static int hello_resume(struct platform_device *pdv){
+	
+	return 0;
+}
+
+struct platform_driver hello_driver = {
+	.probe = hello_probe,
+	.remove = hello_remove,
+	.shutdown = hello_shutdown,
+	.suspend = hello_suspend,
+	.resume = hello_resume,
+	.driver = {
+		.name = DRIVER_NAME,
+		.owner = THIS_MODULE,
+	}
+};
 
 static int hello_init(void)
 {
-	printk(KERN_EMERG "HELLO WORLD ENTER!\n");
+	int DriverState;
+	
+	printk(KERN_EMERG "HELLO WORLD enter!\n");
+	DriverState = platform_driver_register(&hello_driver);
+	
+	printk(KERN_EMERG "\tDriverState is %d\n",DriverState);
 	return 0;
 }
 static void hello_exit(void)
 {
 	printk(KERN_EMERG "HELLO WORLD EXIT!\n");
+	platform_driver_unregister(&hello_driver);	
 }
 
 module_init(hello_init);
