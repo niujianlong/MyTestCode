@@ -6,7 +6,7 @@
 /*register misc device head file*/
 #include <linux/miscdevice.h>
 /*包含文件结构体的头文件*/
-#include <include/linux/fs.h>
+#include <linux/fs.h>
 
 #define  DRIVER_NAME "hello_ctrl"
 
