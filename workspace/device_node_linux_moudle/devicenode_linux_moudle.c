@@ -28,7 +28,7 @@ static int hello_ioctl1(struct inode *, struct file *, unsigned int, unsigned lo
 
 }
 #endif
-static int hello_ioctl (struct file *file, unsigned int cmd, unsigned long argv){
+static long hello_ioctl (struct file *file, unsigned int cmd, unsigned long argv){
 	printk(KERN_EMERG"cmd = %d\n argv = %d\n",cmd,argv);
 	return 0;
 }
@@ -59,14 +59,14 @@ static int hello_remove(struct platform_device *pdv){
 	misc_deregister(&hello_dev);
 	return 0;
 }	
-static int hello_suspend(struct platform_device *pdv){
+static int hello_suspend(struct platform_device *pdv, pm_message_t state pm){
 	printk(KERN_EMERG "\thello_suspend\n");
 	return 0;
 }	
 
-static int hello_shutdown(struct platform_device *pdv){
+static void hello_shutdown(struct platform_device *pdv){
 	printk(KERN_EMERG "\thello_shutdown\n");
-	return 0;
+	return;
 }	
 static int hello_resume(struct platform_device *pdv){
 	
