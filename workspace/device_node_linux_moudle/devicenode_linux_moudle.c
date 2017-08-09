@@ -8,6 +8,8 @@
 /*包含文件结构体的头文件*/
 #include <linux/fs.h>
 
+//#include <include/linux/module.h>
+
 #define  DRIVER_NAME "hello_ctrl"
 
 MODULE_LICENSE("Dual BSD/GPL");
@@ -31,7 +33,7 @@ static int hello_ioctl (struct file *file, unsigned int cmd, unsigned long argv)
 }
 static struct file_operations hello_ops = 
 {
-	.owner = THIS_MOUDLE,
+	.owner = THIS_MODULE,
 	.open = hello_open,
     .release = hello_release,
     .unlocked_ioctl = hello_ioctl, 
