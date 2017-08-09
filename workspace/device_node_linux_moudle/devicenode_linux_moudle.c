@@ -59,7 +59,7 @@ static int hello_remove(struct platform_device *pdv){
 	misc_deregister(&hello_dev);
 	return 0;
 }	
-static int hello_suspend(struct platform_device *pdv, pm_message_t state pm){
+static int hello_suspend(struct platform_device *pdv, pm_message_t state){
 	printk(KERN_EMERG "\thello_suspend\n");
 	return 0;
 }	
