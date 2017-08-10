@@ -49,7 +49,7 @@ static struct miscdevice hello_dev = {
 };
 
 
-static int hello_probe(struct platform_device *pdv){
+static int __devinit hello_probe(struct platform_device *pdv){
 	printk(KERN_EMERG "\tinitialized\n");
 	misc_register(&hello_dev);
 	return 0;
