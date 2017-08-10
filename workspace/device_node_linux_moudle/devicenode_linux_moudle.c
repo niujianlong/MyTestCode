@@ -44,7 +44,7 @@ static struct file_operations hello_ops =
 
 static struct miscdevice hello_dev = {
 	.minor = MISC_DYNAMIC_MINOR,
-	.name = DRIVER_NAME,
+	.name = DEVICE_NAME,
 	.fops = &hello_ops,
 };
 
