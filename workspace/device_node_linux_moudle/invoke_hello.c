@@ -8,7 +8,7 @@
 int main(int argc, char const *argv[])
 {
 	int fd;
-	const char *hello_node = "/dev/hello_ctrl";
+	const char *hello_node = "/dev/hello_ctl123";
 	if((fd = open(hello_node,O_RDWR|O_NDELAY))<0){
 		printf("hello open %s failed!\n", hello_node);
 	}
