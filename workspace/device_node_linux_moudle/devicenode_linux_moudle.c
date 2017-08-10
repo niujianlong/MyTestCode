@@ -10,7 +10,8 @@
 
 //#include <include/linux/module.h>
 
-#define  DRIVER_NAME "hello_ctrl"
+#define DRIVER_NAME "hello_ctl"
+#define DEVICE_NAME "hello_ctl123"
 
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_AUTHOR("NJL");
