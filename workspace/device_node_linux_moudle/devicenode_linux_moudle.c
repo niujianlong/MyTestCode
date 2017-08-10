@@ -88,7 +88,7 @@ struct platform_driver hello_driver = {
 
 static int hello_init(void)
 {
-	int DriverState;
+	int DriverState = 100;
 	
 	printk(KERN_EMERG "HELLO WORLD enter!\n");
 	DriverState = platform_driver_register(&hello_driver);
