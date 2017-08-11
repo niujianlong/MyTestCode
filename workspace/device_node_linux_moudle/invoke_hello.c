@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
 	}
 	else{
 		printf("open %s success\n",hello_node);
+		ioctl(fd,1,7);
 	}
 	close(fd);
 	return 0;
