@@ -26,7 +26,7 @@ public:
 	Sales_data();//声明一个无参的构造函数
 	//explicit Sales_data(string &s,double price=0):bookno(s){}   //这里就是一个隐式转换的构造函数
 	//explicit Sales_data(string b, int u, double p) :bookno(b), units_sold(u), price(p){}//声明一个有参数的默认构造函数，用参数的初始化表对数据成员初始化
-	explicit Sales_data(const string &s){}
+	 Sales_data(const string &s){}
 	friend istream& operator >> (istream &, Sales_data &);//运算符>>重载为友元函数
 	friend ostream& operator << (ostream &, Sales_data &);//运算符<<重载为友元函数
 	friend Sales_data operator + (Sales_data & lhs, Sales_data & rhs);//声明有元的运算符重载 + 函数
